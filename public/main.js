@@ -11,7 +11,7 @@ var main = (function() {
 	}
 
 	function submit(event) {
-		event.preventDefault($('.todo'));
+		event.preventDefault();
 		todoText = $todo.val(); 	
 		$todo.val('');
 		$.ajax({
@@ -21,8 +21,8 @@ var main = (function() {
 			success: function(data, textStatus, jqXHR) {	
 				$list.prepend($('<li/>').text(data.todo));
 			}, 
-			error: function(data, textStatus, jqXHR) {
-				console.log('successfully saved');
+			error: function() {
+				console.error('save failed', arguments);
 			}
 		});
 	}
@@ -37,7 +37,7 @@ var main = (function() {
 				})
 			},
 			error: function(data, textStatus, jqXHR) {
-				console.log('err');
+				console.error('fetch failed', arguments);
 			}
 		});
 	}
