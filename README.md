@@ -1,2 +1,2 @@
 # todo
-Simple Todo app with Express.js
+*very* *very* Simple Todo app with Express.js
